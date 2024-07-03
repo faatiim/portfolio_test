@@ -1,0 +1,14 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "creating my portfolio",
+  "main": "index.js",
+  "scripts": {
+    "test": "sass app.scss app.css --no-source-map --watch"
+  },
+  "author": "Fatima Dieye",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.72.0"
+  }
+}

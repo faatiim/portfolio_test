@@ -1,0 +1,145 @@
+//@use "../abstracts/colors" as *;
+//@use "../abstracts/mixins" as *; insteaed of use index
+@use "../abstracts" as *; // si le fichier s'appel index tu peux ne pas la préciser il le sera par défault
+@use "../layout/grid";
+.nav {
+    width: 100%;
+    height: 7rem;
+    margin-right: 2rem;
+    background: $white;
+    @include position(fixed, 0, null, null, 0);
+    //position: fixed;
+    //top: 0;
+    //left: 0;
+    border-bottom: .1rem solid $gray-100;
+    @include flexbox(center, null);
+    z-index: 1;
+    &__wrapper {
+        width: 100%;
+        padding-left:5rem;
+        padding-right: $gutter;
+        @include responsive (lg){
+            margin-left: 7rem;
+            margin-right: 7rem;
+        }
+        max-width: $maxwidth;
+        @include flexbox(space-between, center);
+        //display: flex;
+        //justify-content: space-between;
+        //align-items: center;
+        @include responsive(sm){
+            padding-left: $gutter + 1rem;
+            padding-right: $gutter + 1rem;
+        }
+        &__logo {
+            &__brand {
+                text-decoration: none;
+                text-transform: capitalize;
+                color: $black;
+                font-size: 1.6rem;
+                font-weight: 600;
+                position: relative;
+                &::after {
+                    @include position(absolute, null, -1rem, .6rem, null);
+                    //position: absolute;
+                    content: " ";
+                    //right: -1rem;
+                    //bottom: .6rem;
+                    width: .8rem;
+                    height: .8rem;
+                    background: $pink-700;
+                    border-radius: 50%;
+                    box-shadow: .2rem .2rem $pink-200;
+                }
+                @include responsive(xsm){
+                    font-size: 1.3rem;
+                }
+            }
+        }
+        &__ul{
+            display: flex;
+            list-style: none;
+            @include responsive(sm) {
+                @include position(fixed, 7rem, 0, 0, 0);
+                width: 100%;
+                height: 63%;
+                background: rgba(127, 12, 12, 0.644);
+                flex-direction: column;
+                padding-top: 3rem;
+                transform: scale(0); //cacher url 
+                border-radius: 50%;
+                transition: all .3s ease-in-out;
+                transform-origin: 100% 50%;
+            }
+            &__li{
+                &__a{
+                    text-decoration: none;
+                    text-transform: capitalize;
+                    font-size: 1.2rem;
+                    color: $black;
+                    font-weight: 500;
+                    padding-left: $gutter;
+                    padding-right: $gutter;
+                    transition: all .5s linear;
+                    @include responsive(sm){
+                        font-size: 1.5rem;
+                        display: block;
+                        color: white;
+                        padding-top: 2rem;
+                        padding-bottom: 1rem;
+                        padding-left: $gutter + 1rem; //2.5 rem
+                        padding-right: $gutter;
+                        &:hover{
+                            background: $white;
+                            color: $black;
+                            padding-left: $gutter + 2rem;
+                        }
+                    }
+                }
+                &:first-child &__a{
+                    color: $pink-600;
+                    @include responsive (sm){
+                        color: black;
+                    }
+                }
+                &:last-child &__a{
+                    padding-right: 0;
+                    padding-left: -4;
+                }
+            }
+        }
+        &__toggle {
+            display: none;
+            width: 3rem;
+            height: 3rem;
+            padding-left: 0;
+            background: $pink-600;
+            border-radius: .4rem;
+            outline: .3rem solid $pink-200;
+            cursor: pointer;
+            i{
+                color: $white;
+                font-size: 2.1rem; 
+            }
+            @include responsive (sm){
+                @include flexbox(center, center);
+            }
+            @include responsive (xsm){
+                @include flexbox(center, center);
+                width: 2.5rem;
+                height: 2.5rem;
+                padding-left: 0;
+                outline: .2rem solid $pink-200;
+
+            }
+        }
+
+    }
+    @include responsive(sm) {
+        &__active {
+            transform: scale(1);
+            border-radius: 0;
+        }
+    }
+    
+}

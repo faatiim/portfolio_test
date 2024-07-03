@@ -1,0 +1,82 @@
+@use "../abstracts" as *;
+.heading {
+    margin-left: 2rem;
+}
+.formation {
+    margin-top: 10rem;
+    padding: 4rem 0;
+    margin-left: 2rem;
+/*
+    &--row1 [class^="col-"]:nth-child(2) {
+        transform: skewY(8deg);                                                 
+    }
+    &--row1 [class^="col-"]:nth-child(4) {
+        transform: skewY(8deg);
+    }
+    &--row2 [class^="col-"]:nth-child(1) {
+        transform: skewY(-8deg);
+    }
+    &--row2 [class^="col-"]:nth-child(3) {
+        transform: skewY(-8deg);
+    }*/
+    &__card {
+        margin-left: 0.4rem;
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+        width: 90%;
+        background: linear-gradient(110deg, $white 50%, rgba(150, 19, 19, 0.13) 50%);
+        padding: 3rem;
+        box-shadow: -3rem 3rem 2rem -3rem rgba(211, 47, 47, 0.2);
+        border-radius: 0.3rem;
+        &__title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            line-height: 1.2rem;
+            text-transform: uppercase;
+            background: linear-gradient(45deg, $black 20%, $pink-600 20%);
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+        }
+        &__block {
+            @include flexbox(null, center);
+            margin-top: 1.2rem;
+            
+            &__left {
+                @include flexbox(center, center);
+                border-radius: 50%;
+                background: rgba(152, 33, 33, 0.688);
+                box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.412);
+                &--house {
+                    background: $pink-100;
+                    i{
+                        @include flexbox(center, center);
+                        color: $pink-600;
+                        font-size: 1rem;
+                        width: 2.2rem;
+                        height: 2.2rem;
+                    }
+                }
+                &--calendar {
+                    background: $gray-200;
+                    i{
+                        @include flexbox(center, center);
+                        width: 2.1rem;
+                        height: 2.1rem;
+                        color: $gray-700;
+                        font-size: 1rem;
+                    }
+                }
+            }
+            &__right {
+                display: inline-block;
+                margin-left: 1rem;
+                font-weight: 600;
+                font-size: 0.8rem;
+                font-weight: 500;
+                color: $black;  
+                text-transform: capitalize;
+            }
+        }
+    }
+}

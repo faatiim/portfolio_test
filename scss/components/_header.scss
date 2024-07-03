@@ -1,0 +1,229 @@
+@use "../abstracts" as *;
+.header {
+    margin-left: 2rem;
+  margin-top: 7rem;
+  position: relative;
+  &::after {
+    @include position(absolute, 0, 0, null, null);
+    content: "";
+    width: 50%;
+    height: calc(100vh - 7rem);
+    background: url("./assets/images/afro.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 15%;
+    clip-path: polygon(20% 0, 100% 0, 100% 50%, 100% 100%, 0 100%, 0 100%);
+    @include responsive(md) {
+      width: 100%;
+      height: calc(50vh - 7rem);
+      clip-path: none;
+    }
+  }
+  &__data {
+    width: 100%;
+    height: calc(100vh - 10rem);
+    @include flexbox(null, center);
+    @include responsive(md) {
+      height: calc(50vh - 3rem);
+      margin-top: calc(50vh - 7rem);
+      justify-content: center;
+    }
+    @include responsive(xsm) {
+      justify-content: flex-start;
+    }
+    &__contents {
+      &__top {
+        font-size: 1.7rem;
+        font-weight: 500;
+        text-transform: capitalize;
+        color: $black;
+        @include responsive(xsm) {
+          font-size: 1.6rem;
+        }
+      }
+      &__heading {
+        margin-top: 1.5rem;
+        font-size: 4.5rem;
+        font-weight: 900;
+        line-height: 4.5rem;
+        background: linear-gradient(45deg, $black 50%, $pink-350 50%);
+        color: transparent;
+        background-clip: text;
+        -webkit-background-clip: text;
+        text-transform: capitalize;
+        @include responsive(md) {
+          font-size: 4rem;
+          line-height: 4rem;
+        }
+        @include responsive(sm) {
+          font-size: 3.3rem;
+          line-height: 3.3rem;
+          margin-top: 1rem;
+          font-weight: 800;
+        }
+        @include responsive(xsm) {
+          font-size: 3rem;
+          line-height: 3rem;
+          font-weight: 700;
+        }
+      }
+      &__bottom {
+        margin-top: 1.5rem;
+        text-transform: capitalize;
+        font-size: 1.8rem;
+        font-weight: 500;
+        color: $black;
+        @include responsive(sm) {
+          margin-top: 1rem;
+        }
+        @include responsive(xsm) {
+          font-size: 1.7rem;
+        }
+      }
+      &__links {
+        margin-top: 1.5rem;
+      }
+    }
+  }
+}
+
+
+
+/*
+@use "../abstracts" as*;
+.header{
+    margin-top: 7rem;
+    position: relative;
+    &::after{
+        @include position(absolute, 0, 0, null, null);
+        content: "";
+        width: 50%;
+        height: calc(117vh - 13rem);
+        background-image: url("./assets/images/afro.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 0, 25%;
+        clip-path: polygon(100% 0, 100% 0, 100% 74%, 100% 100%, 0 100%, 0 100%, 36% 0);
+        @include responsive(md) {
+            
+        }        
+        @include responsive(sm) {
+            background-image: url("./assets/images/afro1.jpg");
+            width: 100%;
+            height: calc(50vh - 7rem);
+            clip-path: none;
+        }
+    }
+    &__data{
+        width: 100%;
+        height: calc(100vh - 6rem);
+        @include flexbox(null,center);
+        @include responsive(md){
+            height: calc(50vh - 10rem);
+            margin-top: calc(40vh - 1rem);
+        }
+        @include responsive(sm){
+            height: calc(50vh - 10rem);
+            margin-top: calc(70vh - 18rem);
+        }
+        @include responsive(xsm){
+            height: calc(50vh - 10rem);
+            margin-top: calc(70vh - 13rem);
+        }
+        &__contents {
+            margin-left: 4rem;
+            @include responsive (sm){
+                width: 100%;
+                margin-left: 0rem;
+            }
+            @include responsive (lg){
+                width: 100%;
+                margin-left: 3rem;
+            }
+            &__top {
+                font-size: 1.2rem;
+                font-weight: 700;
+                text-transform: capitalize;
+                color: $black;
+                @include responsive(lg) {
+                    margin-top: 1rem;
+                    font-size: 1rem;
+                    line-height: 2rem;
+                }
+                @include responsive(md) {
+                    margin-top: 1rem;
+                    font-size: 1.5rem;
+                    line-height: 2rem;
+                }
+                @include responsive(sm) {
+                    margin-top: 6rem;
+                    font-size: 1.1rem;
+                    line-height: 2rem;
+                    font-weight: 500;
+                }
+                @include responsive(xsm){
+                    margin-top: 2rem;
+                    font-size: 1rem;
+                    line-height: 1.2;
+                    font-weight: 600;
+                }
+                
+            }&__heading {
+                margin-top: 1.5rem;
+                font-size: 2.8rem;
+                font-weight: 900;
+                line-height: 4.5rem;
+                background: linear-gradient(45deg, $black 50%, $pink-350 50%);
+                color: transparent;
+                background-clip: text;
+                -webkit-background-clip: text;
+                text-transform: capitalize;
+                @include responsive(lg){
+                    font-size: 3.3rem;
+                    line-height: 3.3rem;
+                    margin-top: 1rem;
+                    font-weight: 500;
+                                      
+                }
+                @include responsive(md) {
+                    font-size: 2rem;
+                    line-height: 2rem;
+                }
+                @include responsive(sm){
+                    font-size: 2rem;
+                    line-height: 3.3rem;
+                    margin-top: 1rem;
+                    font-weight: 700;
+                    
+                }
+                @include responsive(xsm){
+                    font-size: 1.4rem;
+                    line-height: 2rem;
+                    font-weight: 800;
+                    margin-top: 1rem;
+                }
+            }&__bottom {
+                margin-top: 1.5rem;
+                text-transform: capitalize;
+                font-size: 1.5rem;
+                font-weight: 500;
+                color: $black;  
+                @include responsive(sm) {
+                    margin-top: 1rem;
+                    font-size: 1.4rem;
+                    line-height: 2.4rem;
+                    font-weight: 500;
+                }
+                @include responsive(xsm){
+                    font-size: 1rem;
+                    margin-top: 1.5rem;
+
+                }              
+
+            }
+            &__links {
+                margin-top: 1.6rem;
+            }
+        }
+    }
+}*/
